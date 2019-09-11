@@ -1,0 +1,8 @@
+command：
+    send：
+        server_connect_request：
+            1."ASKCONNECT:*"
+    receive:
+        server_connect_request:
+            1."ACCEPTCONNECT:*"
+            2."REJECTCONNECT:*"
