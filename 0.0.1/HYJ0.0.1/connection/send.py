@@ -5,10 +5,10 @@ import socket
 import connection
 
 sender = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-sender.bind("127.0.0.1",9999)
+sender.bind( ("127.0.0.1",9999) )
 
-def string():
-    
+def string(s):
+    sender.sendto(bytes(s,'ascii'), (connection.server_addr, 8000) )
 
-
-def
+def server_connect_request(askTime = 0):
+    connection.send.string("ASKCONNECT:" + str(askTime))

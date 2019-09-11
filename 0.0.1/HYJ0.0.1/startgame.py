@@ -4,9 +4,9 @@ import connection
 
 if connection.server_addr == "Undefined":
     print("input the server address:", end = '')
-    server_addr = str( input() )
+    connection.server_addr = str( input() )
 
-connection.connect.wait_server_connected()
+connection.connect.wait_server_connected(100)
 
 while True:
     print(connection.receive.command_list)

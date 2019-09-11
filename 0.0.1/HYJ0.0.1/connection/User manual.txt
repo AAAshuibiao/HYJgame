@@ -1,7 +1,7 @@
 command：
     send：
         server_connect_request：
-            1."ASKCONNECT:*"
+            1."ASKCONNECT:askTime"
     receive:
         server_connect_request:
             1."ACCEPTCONNECT:*"
