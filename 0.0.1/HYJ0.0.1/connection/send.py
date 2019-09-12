@@ -10,5 +10,8 @@ sender.bind( ("127.0.0.1",9999) )
 def string(s):
     sender.sendto(bytes(s,'ascii'), (connection.server_addr, 8000) )
 
-def server_connect_request(askTime = 0):
-    connection.send.string("ASKCONNECT:" + str(askTime))
+def command(command, content = '0', ID = connection.ID):
+    connection.send.string(command + ':' + content + ':' + str(ID))
+
+def ask_connect_request(playerName):
+    connection.send.command("ASKCONNECT", playerName)

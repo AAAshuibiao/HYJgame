@@ -20,8 +20,8 @@ def receiver_func():
     command_list = []
 
     while True:
-        data, addr = s.recvfrom(1024)
-        if addr == (connection.server_addr,8001):
+        data, address = s.recvfrom(1024)
+        if address == (connection.server_addr,8001):
             data_string = str(data, 'ascii')
             command_list.append(data_string)
 

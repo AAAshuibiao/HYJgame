@@ -1,8 +1,8 @@
 command：
     send：
         server_connect_request：
-            1."ASKCONNECT:askTime"
+            1."ASKCONNECT:userName:Undefined"
     receive:
         server_connect_request:
-            1."ACCEPTCONNECT:*"
-            2."REJECTCONNECT:*"
+            1."ACCEPTCONNECT:ID"
+            2."REJECTCONNECT:error"
