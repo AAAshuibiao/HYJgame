@@ -5,7 +5,7 @@ import socket
 import connection
 
 sender = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-sender.bind( ("127.0.0.1",8001) )
+sender.bind( ("0.0.0.0",8001) )
 
 def string(ID, s):
     sender.sendto(bytes(s,'ascii'), (connection.users[ID].addr, 9912) )

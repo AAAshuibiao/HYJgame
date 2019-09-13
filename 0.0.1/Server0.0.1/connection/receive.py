@@ -11,7 +11,7 @@ def receiver_func():
     global command_list
     
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.bind( ("127.0.0.1", 8000) )
+    s.bind( ("0.0.0.0", 8000) )
 
     while True:
         data, address = s.recvfrom(1024)
