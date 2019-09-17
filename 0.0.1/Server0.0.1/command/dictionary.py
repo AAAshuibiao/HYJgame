@@ -1,8 +1,13 @@
 if __name__ == "__main__": raise SystemError("Incorrect starting file")
 
-def Phone_Call(name):
-    print("Hello, " + name)
+import connection
 
 funcs = {
-    "CALL" : Phone_Call ,\
+    "EXEC" : exec ,\
+    "PRINT" : print
+}
+
+methods = {
+    "CALL" : connection.connect.Phone_Call ,\
+    "ECHO" : connection.connect.echo
 }

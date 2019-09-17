@@ -11,7 +11,7 @@ def Check_Address_Validity(addr):
 
 #//user config zone:
 server_addr = "127.0.0.1"
-ASKCONNECT_timeout_msec = 1000
+ASKCONNECT_timeout_msec = 1999
 ASKCONNECT_send_interval = 1000
 
 playerName = "AAA_shuibiao"

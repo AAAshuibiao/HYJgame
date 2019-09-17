@@ -4,11 +4,16 @@ import random
 
 import connection
 
+def Phone_Call(self, name):
+    print("Hello, " + name + "! This is " + self.playerName)
+
+def echo(self, s):
+    connection.send.command("PRINT", s, self.ID)
 class User(object):
     def __init__(self, ID, addr, playerName):
         self.ID = ID
         self.addr = addr
-        self.name = playerName
+        self.playerName = playerName
         self.command_list = []
 
 def accept(addr, playerName):

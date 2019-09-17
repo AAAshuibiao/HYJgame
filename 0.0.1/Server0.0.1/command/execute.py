@@ -7,7 +7,10 @@ def user(user):
     command_list = user.command_list
     while command_list != []:
         c = command_list.pop()
-        command.dictionary.funcs[c[0]](c[1])
+        try: command.dictionary.funcs[c[0]](c[1])
+        except KeyError:
+            try: command.dictionary.methods[c[0]](user, c[1])
+            except: raise SystemError("Unknown Command")
 
 def all(users = "Not_Given"):
     if users == "Not_Given": users = connection.users.copy()
