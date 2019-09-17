@@ -17,7 +17,8 @@ def receiver_func():
         data, address = s.recvfrom(1024)
         addr = address[0]
 
-        command_parts = str(data, "ascii").split(':')
+        data_string = str(data, "ascii")
+        command_parts = data_string.split(':')
 
         if command_parts[0] == "ASKCONNECT":
             connection.connect.accept(addr, command_parts[1])
@@ -32,7 +33,7 @@ def receiver_func():
                     break
             else: raise SystemError
 
-        except SystemError or AssertionError:
+        except (SystemError, AssertionError):
             print("WARNING:Unexpected connection")
             continue
 
@@ -41,15 +42,15 @@ def receiver_func():
         try:
             command = command_parts[0]
             content = command_parts[1]
-            ID = int(command_parts[2])
-        except IndexError or ValueError:
-            print("WARNING:Command syntax invalid")
+            ID = command_parts[2]
+        except (IndexError ,ValueError):
+            print("WARNING:Command syntax invalid: " + data_string)
             continue
 
         try:
             connection.users[ID].command_list.append( (command, content) )
         except KeyError:
-            print("WARNING:Command ID invalid")
+            print("WARNING:Command ID invalid: " + data_string)
 
 
 receiver=threading.Thread(target=receiver_func,name='receiver')

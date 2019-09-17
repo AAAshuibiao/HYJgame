@@ -1,12 +1,25 @@
 import time
 
+import command
 import connection
-
-if connection.server_addr == "Undefined":
-    print("input the server address:", end = '')
-    connection.server_addr = str( input() )
 
 connection.connect.wait_server_connected()
 
+count = 0
+
+time.sleep(1)
 while True:
-    print(connection.receive.command_list)
+    loop_start_time = time.time()
+
+    command.execute.all()
+
+    if count%100 == 0:
+        connection.send.command("CALL", "Mr.Smith")
+
+    count+=1
+    
+    TBR = time.time()
+
+    while time.time()-loop_start_time < (1/300): pass
+    
+    print( (time.time()-TBR)*1000 )

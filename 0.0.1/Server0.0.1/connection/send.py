@@ -7,11 +7,11 @@ import connection
 sender = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sender.bind( ("0.0.0.0",8001) )
 
-def string(ID, s):
+def string(s, ID):
     sender.sendto(bytes(s,'ascii'), (connection.users[ID].addr, 9912) )
 
-def command(ID, command, content = '0'):
-    connection.send.string(ID, command + ':' + content)
+def command(command, content, ID):
+    connection.send.string( command + ':' + content + ':' + ID , ID)
 
 def accept_connect_request(ID):
-    connection.send.command(ID, "ACCEPTCONNECT", connection.users[ID].ID)
+    connection.send.command("ACCEPTCONNECT", connection.users[ID].ID, connection.users[ID].ID)

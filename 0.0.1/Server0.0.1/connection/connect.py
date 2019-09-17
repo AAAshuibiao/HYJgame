@@ -15,9 +15,9 @@ def accept(addr, playerName):
     if playerName == '': playerName = "Unnamed player"
 
     while True:
-        ID = random.randint(0,100)
+        ID = str(random.randint(0,10000))
         if not ID in connection.users: break
 
-    connection.users[ID] = User(str(ID), addr, playerName)
+    connection.users[ID] = User(ID, addr, playerName)
     
     connection.send.accept_connect_request(ID)
