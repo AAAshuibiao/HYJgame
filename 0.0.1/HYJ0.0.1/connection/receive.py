@@ -17,7 +17,6 @@ def receiver_func():
     
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.bind( ("0.0.0.0", 9912) )
-    command_list = []
 
     while True:
         try:
@@ -34,7 +33,8 @@ def receiver_func():
                 command_list = []
                 continue
 
-            if address == (connection.server_addr, 8001) and ID == connection.ID:
+            if address == (connection.server_addr, 8001) and\
+                    ID == connection.ID and command_list != "Server not connected":
                 command_list.append( (command, content) )
         except IndexError:
             print("WARNING:Command syntax invalid", data_string)

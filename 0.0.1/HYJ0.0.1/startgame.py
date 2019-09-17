@@ -7,7 +7,6 @@ connection.connect.wait_server_connected()
 
 count = 0
 
-time.sleep(1)
 while True:
     loop_start_time = time.time()
 
