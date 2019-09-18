@@ -4,6 +4,12 @@ import time
 
 import connection
 
+def dog_check():
+    if time.time() - connection.receive.last_receive_time >= 1:
+        connection.send.command("ECHO", "dog")
+    if time.time() - connection.receive.last_receive_time >= 3:
+        raise SystemError("Server connection lost")
+
 def wait_server_connected():
     addr = connection.server_addr
 

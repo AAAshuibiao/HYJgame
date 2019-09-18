@@ -7,9 +7,11 @@ import time
 import connection
 
 command_list = "Server not connected"
+last_receive_time = time.time()
 
 def receiver_func():
     global command_list
+    global last_receive_time
 
     while True:
         if connection.server_addr != "Undefined": break
@@ -21,6 +23,7 @@ def receiver_func():
     while True:
         try:
             data, address = s.recvfrom(1024)
+            last_receive_time = time.time()
             data_string = str(data, 'ascii')
 
             command_parts = data_string.split(':')

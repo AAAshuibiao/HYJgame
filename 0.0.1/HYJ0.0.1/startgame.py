@@ -16,6 +16,8 @@ while True:
         connection.send.command("CALL", "Mr.Smith")
         connection.send.command("ECHO", "Mars")
 
+    connection.connect.dog_check()
+
     loop_count += 1
     
     while time.time()-loop_start_time < (1/300): pass
