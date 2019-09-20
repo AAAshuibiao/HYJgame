@@ -7,5 +7,5 @@ import display
 
 def loadpics(route, namelist):
     for name in namelist:
-        display.picbuf[name] =\
+        display.picbuf[name.split(".")[0]] =\
             pygame.image.load(route + name).convert_alpha()

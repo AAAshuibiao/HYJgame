@@ -6,7 +6,6 @@ import display
 
 display.menu.start_interface.run()
 
-
 #connection.connect.wait_server_connected()
 
 """

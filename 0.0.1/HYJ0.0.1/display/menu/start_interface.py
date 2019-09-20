@@ -9,15 +9,17 @@ import display
 
 def loadpics():
     route = sys.path[0] + "\\display\\texture\\" + display.texture_pack + "\\"
-    piclist = ["BG.jpg"]
+    piclist = ["BG.jpg", "Icon.png"]
     display.menu.UItools.loadpics(route, piclist)
 
 def mainloop():
+    pygame.display.set_icon(display.picbuf["Icon"])
     screen = display.screen
+    
     while True:
         loop_start_time = time.time()
 
-        screen.blit(display.picbuf["BG.jpg"], (0,0))
+        screen.blit(display.picbuf["BG"], (0,0))
 
         for event in pygame.event.get():
             if event.type == QUIT: sys.exit()
