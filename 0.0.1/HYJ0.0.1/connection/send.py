@@ -15,7 +15,7 @@ def command(command, content = 0, ID = "Not_Given"):
         if connection.ID != "Undefined":
             ID = connection.ID
         else: raise SystemError("ID Undefined")
-    connection.send.string(command + ':' + content + ':' + str(ID))
+    connection.send.string(command + ':' + content + ':' + ID)
 
 def ask_connect_request(playerName):
     connection.send.command("ASKCONNECT", playerName, "Undefined")

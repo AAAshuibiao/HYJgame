@@ -40,8 +40,8 @@ def receiver_func():
                     ID == connection.ID and command_list != "Server not connected":
                 command_list.append( (command, content) )
         except IndexError:
-            print("WARNING:Command syntax invalid", data_string)
+            print("WARNING:Command syntax invalid:", data_string)
         
 
-receiver=threading.Thread(target=receiver_func, name='receiver')
+receiver = threading.Thread(target=receiver_func, name='receiver')
 receiver.start()
