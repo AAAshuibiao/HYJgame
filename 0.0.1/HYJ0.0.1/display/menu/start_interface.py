@@ -36,7 +36,11 @@ def main_loop():
 
     main_menu.add_button(
         display.menu.UItools.Button(
-            "back", "Back", pygame.Rect((500,500), (200,100)), press_any_key
+            "back", "Back", pygame.Rect((800,500), (350,150)), press_any_key,\
+            text_color = (15,0,0),\
+            background_color = (127,0,0),\
+            frame_color = (0,0,0),\
+            frame_thickness = 10
         )
     )
 

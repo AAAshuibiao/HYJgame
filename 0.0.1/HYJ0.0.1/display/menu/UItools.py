@@ -44,7 +44,8 @@ class Button(object):
     def __init__(self, name, text, rect, flag,\
     text_color       = pygame.Color(0,0,0),\
     background_color = pygame.Color(255,255,255),\
-    frame_color      = pygame.Color(255,0,0)):
+    frame_color      = pygame.Color(0,0,0),\
+    frame_thickness  = 0                           ):
 
         self.name             = str( name )
         self.rect             = pygame.Rect( rect )
@@ -54,6 +55,7 @@ class Button(object):
         self.text_color       = self.color_fomatting( text_color )
         self.background_color = self.color_fomatting( background_color )
         self.frame_color      = self.color_fomatting( frame_color )
+        self.frame_thickness  = frame_thickness
         self.UI               = None
 
         self.init_button_surface()
@@ -62,15 +64,20 @@ class Button(object):
     def color_fomatting(color):
         if type(color) == pygame.Color: return color
         elif type(color) == tuple:
-            return pygame.Color(color)
+            return pygame.Color(*color)
         else: raise ValueError
 
     def init_button_surface(self):
         surface = self.surface
+
         surface.fill(self.background_color)
+
         button_frame_rect = self.rect.copy()
         button_frame_rect.topleft = (0,0)
-        pygame.draw.rect(surface, self.frame_color, button_frame_rect, 5)
+
+        pygame.draw.rect(surface, self.frame_color,\
+            button_frame_rect, self.frame_thickness)
+
         print_text(self.text, (0,0), self.text_color,\
             self.rect.size, surface)
 
