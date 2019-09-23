@@ -35,7 +35,9 @@ def main_loop():
                 sys.exit()
 
             if event.type == KEYDOWN:
-                if event.key == K_ESCAPE: sys.exit()
+                if event.key == K_ESCAPE:
+                    pygame.quit()
+                    sys.exit()
                 else:
                     if flag == "press_any_key":
                         flag = "menu"
