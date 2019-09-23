@@ -14,6 +14,7 @@ screen_mode = WINDOWED
 #//end user config zone
 
 pygame.init()
+font = pygame.font.SysFont(font_pack, 72)
 pygame.display.set_caption("HYJ0.0.1")
 screen = pygame.display.set_mode(screen_size, screen_mode, 32)
 
