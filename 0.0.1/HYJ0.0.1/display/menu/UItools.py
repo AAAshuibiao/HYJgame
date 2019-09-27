@@ -5,7 +5,6 @@ import pygame
 
 import display
 
-
 def loadpics(route, namelist):
     for name in namelist:
         display.picbuf[name.split(".")[0]] =\
@@ -41,16 +40,19 @@ class Pic(object):
 
 
 class Button(object):
-    def __init__(self, name, text, rect, flag,\
-    text_color       = pygame.Color(0,0,0),\
-    background_color = pygame.Color(255,255,255),\
-    frame_color      = pygame.Color(0,0,0),\
+    def __init__(self, name, text, rect            ,\
+    flag             = None                        ,\
+    collide_func     = None                        ,\
+    text_color       = pygame.Color(0,0,0)         ,\
+    background_color = pygame.Color(255,255,255)   ,\
+    frame_color      = pygame.Color(0,0,0)         ,\
     frame_thickness  = 0                           ):
 
         self.name             = str( name )
         self.rect             = pygame.Rect( rect )
         self.text             = str( text )
         self.flag             = flag
+        self.collide_func     = None
         self.surface          = pygame.Surface( self.rect.size )
         self.text_color       = self.color_fomatting( text_color )
         self.background_color = self.color_fomatting( background_color )
@@ -83,7 +85,10 @@ class Button(object):
 
 
     def collide(self, poz):
-        if self.rect.collidepoint(poz):
+        if self.collide_func != None:
+            collide_func(self)
+
+        if self.flag != None and self.rect.collidepoint(poz):
             self.UI.flag = self.flag
 
 
@@ -97,6 +102,7 @@ class Page(object):
         self.pics = {}
         self.buttons = {}
         self.UI = None
+        self.update_func = None
     
     def add_pic(self, pic):
         pic.UI = self.UI
@@ -118,13 +124,17 @@ class Page(object):
             button.collide(poz)
 
     def update(self):
+        if self.update_func != None:
+            self.update_func(self)
+
         for picName in self.pics:
             self.pics[picName].update()
+        
         for buttonName in self.buttons:
             self.buttons[buttonName].update()
 
 
-class UI(object):
+class UI_class(object):
     def __init__(self, name, screen):
         self.name = str( name )
         self.screen = screen
@@ -148,4 +158,5 @@ class UI(object):
             self.remove_page(page)
 
     def update(self):
-        self.flag.update()
+        if self.flag != None:
+            self.flag.update()
