@@ -10,7 +10,7 @@ screen_size = (1920,1080)
 texture_pack = "standard"
 sound_pack = "standard"
 font_pack = "ardestineopentype"
-screen_mode = WINDOWED
+screen_mode = FULLSCREEN
 #//end user config zone
 
 pygame.init()

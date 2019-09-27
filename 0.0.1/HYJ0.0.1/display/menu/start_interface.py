@@ -18,7 +18,31 @@ def main_loop():
     pygame.display.set_icon(display.picbuf["Icon"])
     screen = display.screen
 
-    UI = display.menu.UI_script.load_UI()
+    UI = display.menu.UItools.UI("start_interface", display.screen)
+
+    press_any_key = display.menu.UItools.Page("press_any_key")
+
+    main_menu = display.menu.UItools.Page("main_menu")
+
+    UI.add_pages( [press_any_key, main_menu] )
+
+    press_any_key.add_pic(
+        display.menu.UItools.Pic(
+            "Unnamed", display.menu.UItools.print_text(
+                "press any key to start..", size = 0.5
+            ), poz = (800,1000)
+        )
+    )
+
+    main_menu.add_button(
+        display.menu.UItools.Button(
+            "back", "Back", pygame.Rect((800,500), (350,150)), press_any_key,\
+            text_color = (15,0,0),\
+            background_color = (127,0,0),\
+            frame_color = (0,0,0),\
+            frame_thickness = 10
+        )
+    )
 
     while True:
         loop_start_time = time.time()
@@ -34,8 +58,8 @@ def main_loop():
                 if event.key == K_ESCAPE:
                     pygame.quit()
                     sys.exit()
-                elif UI.flag.name == "press_any_key":
-                    UI.flag = UI.pages["main_menu"]
+                else:
+                    UI.flag = main_menu
             
             if event.type == MOUSEBUTTONDOWN:
                 mouse_poz = pygame.mouse.get_pos()
