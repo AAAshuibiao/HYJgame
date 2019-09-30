@@ -9,8 +9,8 @@ WINDOWED = 0
 screen_size = (1920,1080)
 texture_pack = "standard"
 sound_pack = "standard"
-font_pack = "ardestineopentype"
-screen_mode = FULLSCREEN
+font_pack = "ardestiny"  #backup types: lucidabright
+screen_mode = WINDOWED
 #//end user config zone
 
 pygame.init()

@@ -77,8 +77,9 @@ class Button(object):
         button_frame_rect = self.rect.copy()
         button_frame_rect.topleft = (0,0)
 
-        pygame.draw.rect(surface, self.frame_color,\
-            button_frame_rect, self.frame_thickness)
+        if self.frame_thickness != 0:
+            pygame.draw.rect(surface, self.frame_color,\
+                button_frame_rect, self.frame_thickness)
 
         print_text(self.text, (0,0), self.text_color,\
             self.rect.size, surface)
@@ -144,7 +145,8 @@ class UI_class(object):
     def add_page(self, page):
         page.UI = self
         self.pages[page.name] = page
-        if self.flag == None: self.flag = page
+        if self.flag == None:
+            self.flag = page
 
     def remove_page(self, name):
         del self.pages[name]
