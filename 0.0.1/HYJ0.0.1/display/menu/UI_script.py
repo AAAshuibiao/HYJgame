@@ -69,6 +69,18 @@ def load_UI():
             frame_thickness  = 10
         )
     )
+
+    main_menu.add_button(
+        display.menu.UItools.Button(
+            "settings", "Settings", pygame.Rect((250, 250), (300,100)),\
+            flag             = server_menu ,\
+            text_color       = (15,0,0)      ,\
+            background_color = (127,0,0)     ,\
+            frame_color      = (0,0,0)       ,\
+            frame_thickness  = 10                 
+        )
+    )
+
     #MAIN_MENU
 
 
@@ -134,7 +146,7 @@ def load_UI():
 
     server_menu.add_button(
         display.menu.UItools.Button(
-            "back", "Back", pygame.Rect((850,850), (300,100)),\
+            "back", "Back", pygame.Rect((850,650), (300,100)),\
             flag             = main_menu ,\
             text_color       = (15,0,0)      ,\
             background_color = (127,0,0)     ,\
