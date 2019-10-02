@@ -1,8 +1,14 @@
 if __name__ == "__main__": raise SystemError("Incorrect starting file")
 
+import os
 import time
 
 import connection
+
+def start_local_server(self = None):
+    os.system(
+        "start " + connection.local_server_path
+    )
 
 def dog_check():
     if time.time() - connection.receive.last_receive_time >= 1:

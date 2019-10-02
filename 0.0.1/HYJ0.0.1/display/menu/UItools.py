@@ -1,14 +1,16 @@
 if __name__ == "__main__": raise SystemError("Incorrect starting file")
 
+import os
 import sys
 import pygame
 
 import display
 
+
 def loadpics(route, namelist):
     for name in namelist:
-        display.picbuf[name.split(".")[0]] =\
-            pygame.image.load(route + name).convert_alpha()
+        display.picbuf[ os.path.splitext(name)[0] ]\
+        =pygame.image.load(route + name).convert_alpha()
 
 
 def print_text(text, poz = None, color = pygame.Color(0,0,0), size = None, surface = "Not_given"):
@@ -29,10 +31,13 @@ def print_text(text, poz = None, color = pygame.Color(0,0,0), size = None, surfa
 class Pic(object):
     def __init__(self, name, surface, rect = None, poz = None):
         self.name = str( name )
+
         if rect: surface = pygame.transform.scale(surface, rect.size)
         self.surface = surface
+
         if not rect: rect = pygame.Rect(poz, surface.get_size())
         self.rect = rect
+        
         self.UI = None
 
     def update(self):
@@ -52,7 +57,7 @@ class Button(object):
         self.rect             = pygame.Rect( rect )
         self.text             = str( text )
         self.flag             = flag
-        self.collide_func     = None
+        self.collide_func     = collide_func
         self.surface          = pygame.Surface( self.rect.size )
         self.text_color       = self.color_fomatting( text_color )
         self.background_color = self.color_fomatting( background_color )
@@ -83,14 +88,14 @@ class Button(object):
         print_text(self.text, (0,0), self.text_color,\
             self.rect.size, surface)
 
-
     def collide(self, poz):
-        if self.collide_func != None:
-            collide_func(self)
+        if self.rect.collidepoint(poz):
 
-        if self.flag != None and self.rect.collidepoint(poz):
-            self.UI.flag = self.flag
+            if self.collide_func != None:
+                self.collide_func(self)
 
+            if self.flag != None:
+                self.UI.flag = self.flag
 
     def update(self):
         self.UI.screen.blit(self.surface, self.rect.topleft)
@@ -103,6 +108,7 @@ class Page(object):
         self.buttons = {}
         self.UI = None
         self.update_func = None
+        self.key_func = None
     
     def add_pic(self, pic):
         pic.UI = self.UI
@@ -122,6 +128,10 @@ class Page(object):
         for buttonName in self.buttons:
             button = self.buttons[buttonName]
             button.collide(poz)
+
+    def key_down(self,key):
+        if self.key_func != None:
+            self.key_func(self, key)
 
     def update(self):
         if self.update_func != None:
