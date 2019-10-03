@@ -82,44 +82,23 @@ def load_UI():
             frame_thickness  = 10                 
         )
     )
-
     #MAIN_MENU
 
 
     #CONNECT_SERVER
-    connect_server.add_button(
-        display.menu.UItools.Button("Input_box0",\
-            rect    = pygame.Rect((300,350), (300,100)),\
-            surface = display.picbuf["Input_box"]
-        )
-    )
-    
-    connect_server.add_button(
-        display.menu.UItools.Button("Input_box1",\
-            rect    = pygame.Rect((650,350), (300,100)),\
-            surface = display.picbuf["Input_box"]
-        )
-    )
-
-    connect_server.add_button(
-        display.menu.UItools.Button("Input_box2",\
-            rect    = pygame.Rect((1000,350), (300,100)),\
-            surface = display.picbuf["Input_box"]
-        )
-    )
-
-    connect_server.add_button(
-        display.menu.UItools.Button("Input_box3",\
-            rect    = pygame.Rect((1350,350), (300,100)),\
-            surface = display.picbuf["Input_box"]
-        )
-    )
-
     connect_server.Input_boxes = []
+
     for i in range(4):
-        connect_server.Input_boxes.append(
-            connect_server.buttons["Input_box"+str(i)]
+        name = "Inupt_box" + str(i)
+
+        box = display.menu.UItools.Button(name,\
+        rect    = pygame.Rect((300 + (350*i) , 350), (300,100)),\
+        surface = display.picbuf["Input_box"]
         )
+
+        connect_server.add_button(box)
+
+        connect_server.Input_boxes.append(box)
     
     connect_server.add_button(
         display.menu.UItools.Button("back",\
@@ -160,5 +139,6 @@ def load_UI():
         )
     )
     #SERVER_MENU
+
 
     return UI
