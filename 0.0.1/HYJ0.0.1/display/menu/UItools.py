@@ -32,11 +32,13 @@ class Pic(object):
     def __init__(self, name, surface, rect = None, poz = None):
         self.name = str( name )
 
-        if rect: surface = pygame.transform.scale(surface, rect.size)
-        self.surface = surface
+        if rect:
+            self.rect = rect
+            self.surface = pygame.transform.scale(surface, rect.size)
 
-        if not rect: rect = pygame.Rect(poz, surface.get_size())
-        self.rect = rect
+        else:
+            self.surface = surface
+            self.rect = pygame.Rect(poz, surface.get_size())
         
         self.UI = None
 
@@ -45,27 +47,39 @@ class Pic(object):
 
 
 class Button(object):
-    def __init__(self, name, text, rect            ,\
+    def __init__(self, name,\
+    text             = ""                          ,\
+    poz              = None                        ,\
+    rect             = None                        ,\
     flag             = None                        ,\
     collide_func     = None                        ,\
+    surface          = None                        ,\
     text_color       = pygame.Color(0,0,0)         ,\
     background_color = pygame.Color(255,255,255)   ,\
     frame_color      = pygame.Color(0,0,0)         ,\
     frame_thickness  = 0                           ):
 
         self.name             = str( name )
-        self.rect             = pygame.Rect( rect )
         self.text             = str( text )
         self.flag             = flag
         self.collide_func     = collide_func
-        self.surface          = pygame.Surface( self.rect.size )
         self.text_color       = self.color_fomatting( text_color )
         self.background_color = self.color_fomatting( background_color )
         self.frame_color      = self.color_fomatting( frame_color )
         self.frame_thickness  = frame_thickness
         self.UI               = None
 
-        self.init_button_surface()
+        if surface:
+            if rect:
+                self.rect = rect
+                self.surface = pygame.transform.scale(surface, rect.size)
+            else:
+                self.surface = surface
+                self.rect = pygame.Rect(poz, surface.get_size())
+        else:
+            self.rect = rect
+            self.surface = pygame.Surface( self.rect.size )
+            self.init_button_surface()
 
     @staticmethod
     def color_fomatting(color):
