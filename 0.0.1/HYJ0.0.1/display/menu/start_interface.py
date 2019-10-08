@@ -44,7 +44,7 @@ def main_loop():
                     pygame.quit()
                     sys.exit()
                 else:
-                    UI.flag.key_down(event.unicode)
+                    UI.flag.key_down(event)
             
             if event.type == MOUSEBUTTONDOWN:
                 mouse_poz = pygame.mouse.get_pos()
