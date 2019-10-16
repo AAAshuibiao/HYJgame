@@ -9,7 +9,7 @@ import pygame
 import display
 
 
-def loadpics(route, namelist):
+def load_pic_via_names(route, namelist):
     for name in namelist:
         display.picbuf[ os.path.splitext(name)[0] ]\
         =pygame.image.load(route + name).convert_alpha()
@@ -65,7 +65,7 @@ class Button(object):
     def __init__(self, name,\
     text             = ""                          ,\
     poz              = None                        ,\
-    rect             = None                        ,\
+    rect             = pygame.Rect((0,0), (0,0))   ,\
     flag             = None                        ,\
     collide_func     = None                        ,\
     surface          = None                        ,\
@@ -166,6 +166,9 @@ class Button(object):
             if self.flag != None:
                 self.UI.flag = self.flag
 
+            return True
+        return False
+
     def update(self):
         self.UI.screen.blit(self.surface, self.rect.topleft)
 
@@ -178,6 +181,7 @@ class Page(object):
         self.UI = None
         self.update_func = None
         self.key_func = None
+        self.click_blank_func = None
     
     def add_pic(self, pic):
         pic.UI = self.UI
@@ -198,7 +202,11 @@ class Page(object):
     def collide(self, poz):
         for buttonName in self.buttons:
             button = self.buttons[buttonName]
-            button.collide(poz)
+            if button.collide(poz):
+                break
+        else:
+            if self.click_blank_func:
+                self.click_blank_func()
 
     def key_down(self,key_event):
         if self.key_func != None:
@@ -221,6 +229,11 @@ class UI_class(object):
         self.screen = screen
         self.flag = None
         self.pages = {}
+        self.end = False
+
+    def shutdown(self):
+        self.flag = None
+        self.end = True
 
     def add_page(self, page):
         page.UI = self

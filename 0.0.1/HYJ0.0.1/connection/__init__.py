@@ -20,7 +20,7 @@ playerName = "AAA_shuibiao"
 local_server_path = "D:\\mydata\\Programs\\HYJgame\\0.0.1\\Server0.0.1\\main.py"
 
 while Check_Address_Validity( server_addr ) == False:
-    print("input the server address:", end = '')
+    print("input the local address:", end = '')
     server_addr = str( input() )
 
 ID = "Undefined"

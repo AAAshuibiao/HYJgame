@@ -5,6 +5,13 @@ import time
 
 import connection
 
+
+def set_server_addr(addr):
+    if connection.Check_Address_Validity(addr):
+        connection.server_addr = addr
+    else:
+        raise ValueError
+
 def start_local_server(self = None):
     os.system(
         "start " + connection.local_server_path

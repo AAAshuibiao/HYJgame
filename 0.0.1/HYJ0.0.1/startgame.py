@@ -1,10 +1,16 @@
+import sys
 import time
+
+import pygame
 
 import command
 import connection
 import display
 
 display.menu.start_interface.run()
+
+pygame.quit()
+sys.exit()
 
 #connection.connect.wait_server_connected()
 

@@ -11,7 +11,8 @@ import display
 
 
 def loadpics(piclist = []):
-    directory = sys.path[0] + "\\display\\texture\\" + display.texture_pack + "\\"
+    directory = sys.path[0] + "\\display\\texture\\"\
+    +  display.texture_pack + "\\"
 
     if not piclist:
         for filename in os.listdir(directory):
@@ -20,7 +21,7 @@ def loadpics(piclist = []):
             or  os.path.splitext(filename)[1] == ".png":
                 piclist.append(filename)
     
-    display.menu.UItools.loadpics(directory, piclist)
+    display.menu.UItools.load_pic_via_names(directory, piclist)
 
 
 def main_loop():
@@ -54,6 +55,9 @@ def main_loop():
         UI.update()
         
         pygame.display.update()
+
+        if UI.end:
+            break
 
         while time.time()-loop_start_time < (1/display.frame_rate):
             time.sleep(0.001)
