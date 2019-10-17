@@ -8,7 +8,7 @@ WINDOWED = 0
 #//user config zone:
 screen_size = (1920,1080)
 frame_rate = 30
-screen_mode = WINDOWED
+screen_mode = WINDOWED  #WINDOWED or FULLSCREEN
 
 texture_pack = "standard"
 sound_pack = "standard"

@@ -1,33 +1,39 @@
-import sys
-import time
+try:
+    import sys
+    import time
 
-import pygame
+    import pygame
 
-import command
-import connection
-import display
+    import command
+    import connection
+    import display
 
-display.menu.start_interface.run()
+    display.menu.start_interface.run()
 
-pygame.quit()
-sys.exit()
+    connection.connect.wait_server_connected()
 
-#connection.connect.wait_server_connected()
+    """
+    loop_count = 1
 
-"""
-loop_count = 1
+    while True:
+        loop_start_time = time.time()
 
-while True:
-    loop_start_time = time.time()
+        command.execute.all()
 
-    command.execute.all()
+        connection.connect.dog_check()
 
-    connection.connect.dog_check()
+        if loop_count%10 == 0:
+            display.update.game()
 
-    if loop_count%10 == 0:
-        display.update.game()
+        loop_count += 1
+        
+        while time.time()-loop_start_time < (1/300): pass
+    """
 
-    loop_count += 1
-    
-    while time.time()-loop_start_time < (1/300): pass
-"""
+except SystemExit:
+    pygame.quit()
+    connection.receive.end = True
+
+except Exception as error:
+    pygame.quit()
+    raise error

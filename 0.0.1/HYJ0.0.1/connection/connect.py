@@ -13,9 +13,7 @@ def set_server_addr(addr):
         raise ValueError
 
 def start_local_server(self = None):
-    os.system(
-        "start " + connection.local_server_path
-    )
+    os.system( "start " + connection.local_server_path )
 
 def dog_check():
     if time.time() - connection.receive.last_receive_time >= 1:
@@ -24,9 +22,12 @@ def dog_check():
         raise SystemError("Server connection lost")
 
 def wait_server_connected():
+    connection.receive.receiver.start()
+    
     addr = connection.server_addr
 
     for t in range(connection.ASKCONNECT_timeout_msec+1):
+
         time.sleep(0.001)
 
         if t % connection.ASKCONNECT_send_interval == 0:
@@ -35,4 +36,5 @@ def wait_server_connected():
         if t==connection.ASKCONNECT_timeout_msec:
             raise TimeoutError("Server connect timeout")
 
-        if connection.receive.command_list != "Server not connected": break
+        if connection.receive.command_list != "Server not connected":
+            break
