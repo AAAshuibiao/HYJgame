@@ -4,6 +4,7 @@ import socket
 import threading
 import time
 
+import command
 import connection
 
 command_list = "Server not connected"
@@ -11,6 +12,9 @@ last_receive_time = "Server not connected"
 end = False
 
 def receiver_func():
+    global command_list
+    global last_receive_time
+
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.bind( ("0.0.0.0", 9912) )
     s.settimeout(1)

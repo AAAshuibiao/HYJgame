@@ -23,7 +23,7 @@ def dog_check():
 
 def wait_server_connected():
     connection.receive.receiver.start()
-    
+
     addr = connection.server_addr
 
     for t in range(connection.ASKCONNECT_timeout_msec+1):
