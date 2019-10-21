@@ -2,6 +2,7 @@ if __name__ == "__main__": raise SystemError("Incorrect starting file")
 
 import socket
 import threading
+import time
 
 import connection
 
@@ -47,6 +48,7 @@ def receiver_func():
 
         try:
             connection.users[ID].command_list.append( (command, content) )
+            connection.users[ID].last_receive_time = time.time()
         except KeyError:
             print("WARNING:Command ID invalid: " + data_string)
 

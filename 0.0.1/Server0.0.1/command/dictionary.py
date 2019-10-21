@@ -8,6 +8,5 @@ funcs = {
 }
 
 methods = {
-    "CALL" : connection.connect.Phone_Call ,\
     "ECHO" : connection.connect.echo
 }
