@@ -26,7 +26,7 @@ def accept(addr, playerName):
     connection.send.accept_connect_request(ID)
 
 def dog_check():
-    for user_ID in connection.users:
+    for user_ID in connection.users.copy():
         user = connection.users[user_ID]
         if time.time() - user.last_receive_time > 5:
             connection.users.pop(user_ID)

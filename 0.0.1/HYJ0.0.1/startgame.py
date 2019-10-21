@@ -4,24 +4,15 @@ try:
 
     import pygame
 
-    import command
     import connection
     import display
 
-    display.menu.start_interface.run()
-
-    connection.connect.wait_server_connected()
-
-
     while True:
-        loop_start_time = time.time()
+        display.menu.start_interface.run()
 
-        command.execute.all()
+        connection.connect.wait_server_connected()
 
-        connection.connect.dog_check()
-        
-        while time.time()-loop_start_time < (1/300): pass
-    
+        display.game.game_interface.run()
 
 except SystemExit:
     pygame.quit()
