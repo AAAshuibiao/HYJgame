@@ -28,8 +28,7 @@ def receiver_func():
             command_parts = data_string.split(':')
 
             if address[1] == 10123 and command_parts[4] == "judgelight":
-                address[0] = command_parts[3]
-                address[1] = 8001
+                address = (command_parts[3], 8001)
 
             command = command_parts[0]
             content = command_parts[1]
