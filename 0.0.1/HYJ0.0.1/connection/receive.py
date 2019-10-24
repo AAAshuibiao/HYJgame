@@ -26,6 +26,11 @@ def receiver_func():
             data_string = str(data, 'ascii')
 
             command_parts = data_string.split(':')
+
+            if address[1] == 10123 and command_parts[4] == "judgelight":
+                address[0] = command_parts[3]
+                address[1] = 8001
+
             command = command_parts[0]
             content = command_parts[1]
             ID = command_parts[2]
@@ -34,6 +39,7 @@ def receiver_func():
                 connection.ID = ID
                 command_list = []
                 continue
+
 
             if address == (connection.server_addr, 8001) and\
                     ID == connection.ID and command_list != "Server not connected":

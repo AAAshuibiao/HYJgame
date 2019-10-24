@@ -8,8 +8,7 @@ sender = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sender.bind( ("0.0.0.0",8001) )
 
 def string(s, ID):
-    print(s)#temp
-    sender.sendto(bytes(s,'ascii'), (connection.users[ID].addr, 9912) )
+    sender.sendto( bytes(s, "ascii"), (connection.users[ID].addr, 9912) )
 
 def command(command, content, ID):
     connection.send.string( command + ':' + content + ':' + ID , ID)

@@ -17,7 +17,12 @@ def receiver_func():
         addr = address[0]
 
         data_string = str(data, "ascii")
+        print(data_string)#temp
         command_parts = data_string.split(':')
+
+        if address[1] == 10123 and command_parts[4] == "judgelight":
+            address[0] = command_parts[3]
+            address[1] = 9999
 
         if command_parts[0] == "ASKCONNECT":
             connection.connect.accept(addr, command_parts[1])
