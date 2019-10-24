@@ -5,6 +5,7 @@ try:
     import pygame
 
     import connection
+    import command
     import display
 
     while True:

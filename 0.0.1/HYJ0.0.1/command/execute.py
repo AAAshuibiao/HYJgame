@@ -1,7 +1,11 @@
 if __name__ == "__main__": raise SystemError("Incorrect starting file")
 
+import os
+import pygame
+
 import command
 import connection
+import display
 
 def all(command_list = "Not_Given"):
     if command_list == "Not_Given":

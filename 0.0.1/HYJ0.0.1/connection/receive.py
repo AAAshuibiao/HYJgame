@@ -29,6 +29,8 @@ def receiver_func():
 
             if address[1] == 10123 and command_parts[4] == "judgelight":
                 address = (command_parts[3], 8001)
+                if command_parts[2] == "Unknown":
+                    command_parts[2] = connection.ID
 
             command = command_parts[0]
             content = command_parts[1]

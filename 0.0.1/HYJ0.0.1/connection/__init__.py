@@ -25,5 +25,5 @@ while Check_Address_Validity( server_addr ) == False:
 
 ID = "Undefined"
 
-__all__ = ["receive","connect","send"]
+__all__ = ["connect","receive","send"]
 from connection import *

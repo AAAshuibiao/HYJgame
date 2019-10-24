@@ -31,5 +31,8 @@ def dog_check():
         if time.time() - user.last_receive_time > 5:
             connection.users.pop(user_ID)
 
+def dog_respond(self, s):
+    connection.send.command("DOG", "0", self.ID)
+
 def echo(self, s):
     connection.send.command("PRINT", s, self.ID)

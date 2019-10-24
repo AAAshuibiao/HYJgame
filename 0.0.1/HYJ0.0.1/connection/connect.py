@@ -17,9 +17,12 @@ def start_local_server(self = None):
 
 def dog_check():
     if time.time() - connection.receive.last_receive_time >= 1:
-        connection.send.command("ECHO", "dog")
+        connection.send.command("DOG", "0")
     if time.time() - connection.receive.last_receive_time >= 3:
         raise SystemError("Server connection lost")
+
+def dog_respond(s):
+    pass
 
 def wait_server_connected():
     connection.receive.receiver.start()
