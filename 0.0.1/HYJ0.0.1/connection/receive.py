@@ -28,6 +28,7 @@ def receiver_func():
             command_parts = data_string.split(':')
 
             if address[1] == 10123 and command_parts[4] == "judgelight":
+                connection.send.command("DOG", "0")
                 address = (command_parts[3], 8001)
                 if command_parts[2] == "Unknown":
                     command_parts[2] = connection.ID

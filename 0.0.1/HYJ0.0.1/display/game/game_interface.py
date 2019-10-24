@@ -7,6 +7,9 @@ import connection
 import display
 
 def main_loop():
+
+    screen = display.screen
+
     while True:
         loop_start_time = time.time()
 
