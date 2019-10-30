@@ -11,6 +11,7 @@ import display
 
 
 def main_loop():
+    pics = display.menu.PLtools.PicPool()
     screen = display.screen
 
     while True:
