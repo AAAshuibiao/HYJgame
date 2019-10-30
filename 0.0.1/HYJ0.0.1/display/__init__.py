@@ -8,6 +8,7 @@ WINDOWED = 0
 #//user config zone:
 screen_size = (1920,1080)
 frame_rate = 30
+Game_BG_Color = (127,127,255)
 screen_mode = WINDOWED  #WINDOWED or FULLSCREEN
 
 texture_pack = "standard"
@@ -24,5 +25,5 @@ screen = pygame.display.set_mode(screen_size, screen_mode, 32)
 
 picbuf = {}
 
-__all__ = ["menu","game"]
+__all__ = ["menu"]
 from display import *

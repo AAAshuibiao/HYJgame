@@ -13,7 +13,7 @@ try:
 
         connection.connect.wait_server_connected()
 
-        display.game.game_interface.run()
+        display.menu.game_interface.run()
 
 except SystemExit:
     pygame.quit()

@@ -48,7 +48,6 @@ def main_loop():
             if event.type == MOUSEBUTTONDOWN:
                 mouse_poz = pygame.mouse.get_pos()
                 UI.flag.collide(mouse_poz)
-                #print(mouse_poz) #temp
 
         UI.update()
         

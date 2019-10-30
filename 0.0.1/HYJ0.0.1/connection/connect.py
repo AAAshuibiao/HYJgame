@@ -1,5 +1,6 @@
 if __name__ == "__main__": raise SystemError("Incorrect starting file")
 
+import importlib
 import os
 import time
 
@@ -25,7 +26,10 @@ def dog_respond(s):
     pass
 
 def wait_server_connected():
-    connection.receive.receiver.start()
+    try:
+        connection.receive.receiver.start()
+    except RuntimeError:
+        return 0
 
     addr = connection.server_addr
 

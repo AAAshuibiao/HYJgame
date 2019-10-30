@@ -36,7 +36,7 @@ def receiver_func():
                     break
             else: raise SystemError
 
-        except (SystemError, AssertionError):
+        except (SystemError, AssertionError) as error:
             print("WARNING:Unexpected connection")
             continue
 

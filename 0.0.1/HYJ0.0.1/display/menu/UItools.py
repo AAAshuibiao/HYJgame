@@ -54,10 +54,20 @@ class Pic(object):
         else:
             self.surface = surface
             self.rect = pygame.Rect(poz, surface.get_size())
+
+        self.position = self.rect.topleft
+        self.velocity = (0,0)
         
         self.UI = None
 
     def update(self):
+        if self.velocity != (0,0):
+            self.position = ( 
+                self.position[0] + self.velocity[0] ,\
+                self.position[1] + self.velocity[1]
+            )
+            self.rect.lefttop = self.position
+
         self.UI.screen.blit(self.surface, self.rect.topleft)
 
 
