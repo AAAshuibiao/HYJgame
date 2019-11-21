@@ -6,6 +6,7 @@ import time
 import pygame
 from pygame.locals import *
 
+import command
 import connection
 import display
 
@@ -18,6 +19,8 @@ def main_loop():
         loop_start_time = time.time()
 
         connection.connect.dog_check()
+
+        command.execute.all()
 
         screen.fill( display.Game_BG_Color )
 
