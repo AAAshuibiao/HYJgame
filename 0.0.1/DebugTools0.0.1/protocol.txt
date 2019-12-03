@@ -1,0 +1,9 @@
+From server to user:
+"
+functionName:arg0,arg1,...,argN:userID
+"
+
+From user to server:
+"
+functionName:arg0,arg1,...,argN:userID
+"

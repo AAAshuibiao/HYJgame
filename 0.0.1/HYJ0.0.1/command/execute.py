@@ -1,6 +1,8 @@
 if __name__ == "__main__": raise SystemError("Incorrect starting file")
 
 import os
+import sys
+
 import pygame
 
 import command

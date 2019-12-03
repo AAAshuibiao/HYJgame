@@ -25,5 +25,5 @@ screen = pygame.display.set_mode(screen_size, screen_mode, 32)
 
 picbuf = {}
 
-__all__ = ["menu"]
+__all__ = ["menu", "UI"]
 from display import *
