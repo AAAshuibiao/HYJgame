@@ -43,4 +43,5 @@ class Pic(object):
 class Page(object):
 
     #initialize the object with necessary information
-    def __init__(self, )
+    def __init__(self):
+        pass#implement later
