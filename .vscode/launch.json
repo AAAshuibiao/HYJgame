@@ -8,7 +8,7 @@
             "name": "Python: 嵌入终端",
             "type": "python",
             "request": "launch",
-            "program": "${file}",
+            "program": "${workspaceFolder}\\0.0.1\\main.py",
             "console": "integratedTerminal"
         },
         {
@@ -18,5 +18,6 @@
         "program": "${file}",
         "console": "externalTerminal"
         },
-    ]
+    ],
+    "env" : {"PYTHONPATH": "${workspaceRoot}"}
 }

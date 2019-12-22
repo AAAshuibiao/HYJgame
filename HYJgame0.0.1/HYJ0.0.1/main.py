@@ -25,5 +25,4 @@ except SystemExit:
 #close display and connection before catching error
 except Exception as error:
     pygame.quit()
-    connection.receive.end = True
     raise error

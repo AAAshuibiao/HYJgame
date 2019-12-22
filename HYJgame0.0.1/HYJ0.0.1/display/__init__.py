@@ -14,8 +14,11 @@ if __name__ == "__main__": raise SystemError("Incorrect starting file")
 #imports
 import pygame
 
+__all__ = ["load"]
+from display import *
+
 #version
 version = "0.0.1"
 
-__all__ = ["loader"]
-from display import *
+#load settings
+settings = load.settings()
