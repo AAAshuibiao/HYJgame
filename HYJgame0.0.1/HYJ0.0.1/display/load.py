@@ -12,7 +12,6 @@ import display
 #load settings from settings.json
 def settings():
     #load json file
-    import sys
     settingsFile = open("display\\settings.json", 'r', encoding = "utf8")
     settings = json.loads( settingsFile.read() )
 

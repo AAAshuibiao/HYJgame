@@ -22,3 +22,4 @@ version = "0.0.1"
 
 #load settings
 settings = load.settings()
+print(settings[""])

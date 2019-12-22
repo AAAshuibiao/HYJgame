@@ -3,22 +3,25 @@
     // 悬停以查看现有属性的描述。
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
+
     "configurations": [
         {
             "name": "启动HYJ游戏调试: 内置终端",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}\\HYJgame0.0.1\\HYJ0.0.1\\main.py",
-            "cwd": "${workspaceFolder}\\HYJgame0.0.1\\HYJ0.0.1",
-            "console": "integratedTerminal"
+            "program": "${workspaceFolder}\\main.py",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
         },
         {
             "name": "启动HYJ游戏调试: 外部终端",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}\\HYJgame0.0.1\\\\HYJ0.0.1\\main.py",
-            "cwd": "${workspaceFolder}\\HYJgame0.0.1\\HYJ0.0.1",
+            "program": "${workspaceFolder}\\main.py",
+            "cwd": "${workspaceFolder}",
             "console": "externalTerminal"
         },
     ],
+
+    "pythonPath" : ".\\"
 }
