@@ -5,19 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: 嵌入终端",
+            "name": "启动HYJ游戏调试: 内置终端",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}\\HYJgame0.0.1\\\\HYJ0.0.1\\main.py",
+            "program": "${workspaceFolder}\\HYJgame0.0.1\\HYJ0.0.1\\main.py",
+            "cwd": "${workspaceFolder}\\HYJgame0.0.1\\HYJ0.0.1",
             "console": "integratedTerminal"
         },
         {
-        "name": "Python: 外部终端",
-        "type": "python",
-        "request": "launch",
-        "program": "${workspaceFolder}\\HYJgame0.0.1\\\\HYJ0.0.1\\main.py",
-        "console": "externalTerminal"
+            "name": "启动HYJ游戏调试: 外部终端",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}\\HYJgame0.0.1\\\\HYJ0.0.1\\main.py",
+            "cwd": "${workspaceFolder}\\HYJgame0.0.1\\HYJ0.0.1",
+            "console": "externalTerminal"
         },
     ],
-    "env" : {"PYTHONPATH": "${workspaceRoot}"}
 }

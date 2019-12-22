@@ -13,17 +13,17 @@ import display
 def settings():
     #load json file
     import sys
-    print( sys.path )
-    settingsFile = open("display", encoding = "utf8")
+    settingsFile = open("display\\settings.json", 'r', encoding = "utf8")
     settings = json.loads( settingsFile.read() )
 
     #check version
     assert settings["version"] == display.version
 
-    #put screen_size into a tuple and convert to integers
-    settings["screen_size"] = tuple( settings["screen_size"].split('*') )
+    #convert screen_size to integers and put in a tuple
+    settings["screen_size"] = settings["screen_size"].split('*')
     for i in range( len( settings["screen_size"] ) ):
         settings["screen_size"][i] = int( settings["screen_size"][i] )
+    settings["screen_size"] = tuple( settings["screen_size"] )
 
     #convert screen_mode into pygame standard
     if settings["screen_mode"] == "windowed":
