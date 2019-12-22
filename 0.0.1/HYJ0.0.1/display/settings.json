@@ -1,7 +1,9 @@
 {
+    "version" : "0.0.1",
+
     "screen_size" : "1920*1080",
     "frame_rate" : 30,
-    "screen_mode" : "windowed",
+    "screen_mode" : "fullscreen",
 
     "texture_pack" : "standard",
     "sound_pack" : "standard",

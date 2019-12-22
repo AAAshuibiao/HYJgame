@@ -11,8 +11,11 @@ if __name__ == "__main__": raise SystemError("Incorrect starting file")
 #bug_fix:
 #   text_color may not working
 
-
+#imports
 import pygame
 
-__all__ = ["menu", "UI"]
+#version
+version = "0.0.1"
+
+__all__ = ["loader"]
 from display import *
