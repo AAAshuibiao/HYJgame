@@ -14,6 +14,9 @@ if __name__ == "__main__": raise SystemError("Incorrect starting file")
 #imports
 import pygame
 
+import display
+
+#load submodules
 __all__ = ["load"]
 from display import *
 
@@ -21,5 +24,5 @@ from display import *
 version = "0.0.1"
 
 #load settings
-settings = load.settings()
-print(settings[""])
+settings = display.load.settings()
+print(settings["screen_size"])
