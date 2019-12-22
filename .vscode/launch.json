@@ -8,14 +8,14 @@
             "name": "Python: 嵌入终端",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}\\0.0.1\\main.py",
+            "program": "${workspaceFolder}\\HYJgame0.0.1\\\\HYJ0.0.1\\main.py",
             "console": "integratedTerminal"
         },
         {
         "name": "Python: 外部终端",
         "type": "python",
         "request": "launch",
-        "program": "${file}",
+        "program": "${workspaceFolder}\\HYJgame0.0.1\\\\HYJ0.0.1\\main.py",
         "console": "externalTerminal"
         },
     ],
