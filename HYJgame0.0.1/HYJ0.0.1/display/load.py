@@ -33,3 +33,12 @@ def settings():
         raise ValueError("settings.json: screen_mode invalid, use \"windowed\" or \"fullscreen\"")
 
     return settings
+
+#initialize screen
+def screen():
+    #setup, start the window, and implement the screen settings 
+    screen = pygame.display.set_mode(
+        display.settings["screen_size"], display.settings["screen_mode"], 32
+    )
+
+    return screen

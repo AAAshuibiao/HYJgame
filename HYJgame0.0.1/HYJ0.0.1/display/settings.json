@@ -3,8 +3,9 @@
 
     "screen_size" : "1920*1080",
     "frame_rate" : 30,
-    "screen_mode" : "fullscreen",
+    "screen_mode" : "windowed",
 
+    "UI" : "standard",
     "texture_pack" : "standard",
     "sound_pack" : "standard",
     "font_pack" : "ardestineopentype"
